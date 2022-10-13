@@ -27,3 +27,16 @@ Basic structure for out-of-tree build configuration, referring to Spectrum in pl
 ## More info
 
 See https://spectrum-os.org/doc/build-configuration.html
+
+### KVMS build
+
+For kvms to be enabled from inside a result image the same repos setup can be used, the same
+as described above. For kvms build another config layer being used as well as another
+image description you can see usage if theirself taking a look on the build command below.
+
+    `nix-build spectrum-config-imx8/imx8qxp/kvms.nix -I nixpkgs=nixpkgs-spectrum/ -I spectrum-config=spectrum-config-imx8/config-kvms.nix`
+
+Which also equals to:
+
+    `export NIX_PATH=$NIX_PATH:spectrum-config=spectrum-config-imx8/config-kvms.nix`
+    `nix-build spectrum-config-imx8/imx8qxp/kvms.nix -I nixpkgs=nixpkgs-spectrum/`
